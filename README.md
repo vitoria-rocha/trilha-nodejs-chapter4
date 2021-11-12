@@ -32,3 +32,32 @@ TDD é uma metodologia para realização de testes
   
 Vantagem:
 Se uma regra de negocio mudar, ao fazer o teste conseguimos rodar os testes e ver o que tá acontecendo.
+
+
+## Instalando JEST
+Biblioteca para realizar testes
+> yarn add jest @types/jest -D
+
+> yarn jest --init
+
+✔ Would you like to use Jest when running "test" script in "package.json"? … yes
+✔ Would you like to use Typescript for the configuration file? … yes
+✔ Choose the test environment that will be used for testing › node
+✔ Do you want Jest to add coverage reports? … no
+✔ Which provider should be used to instrument code for coverage? › v8
+✔ Automatically clear mock calls and instances between every test? … yes
+
+> yarn add ts-jest -D
+
+No arquivo jest.config procurar pela propriedade *PRESET*
+
+descomentar e alterar:
+ > preset: "ts-jest",
+
+ Ainda no arquivo jest.config:
+
+ testMatch: [
+   "**/*.spec.ts"
+ ],
+
+ bail: true,
