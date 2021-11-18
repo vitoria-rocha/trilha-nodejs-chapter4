@@ -61,3 +61,7 @@ descomentar e alterar:
  ],
 
  bail: true,
+
+ ## TSCONFIG/PATHS
+
+ Serve para conseguir usar @modules etc
