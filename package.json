@@ -22,6 +22,7 @@
     "@types/jest": "^27.0.2",
     "@types/jsonwebtoken": "^8.5.5",
     "@types/multer": "^1.4.7",
+    "@types/uuid": "^8.3.3",
     "jest": "^27.3.1",
     "ts-jest": "^27.0.7",
     "ts-node-dev": "^1.1.8",
@@ -33,5 +34,11 @@
     "typeorm": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli",
     "test": "jest",
     "seed:admin": "ts-node-dev src/shared/infra/typeorm/seed/admin.ts"
-  }
+  },
+  "name": "trilha-nodejs-chapter4",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:vitoria-rocha/trilha-nodejs-chapter4.git",
+  "author": "vitoria-rocha <vitoria.rocha1206@gmail.com>",
+  "license": "MIT"
 }
