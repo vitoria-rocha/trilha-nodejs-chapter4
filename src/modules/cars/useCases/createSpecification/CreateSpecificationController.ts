@@ -1,4 +1,4 @@
-import { Request, Response } from "express";
+import { Response, Request } from "express";
 import { container } from "tsyringe";
 
 import { CreateSpecificationUseCase } from "./CreateSpecificationUseCase";
@@ -11,10 +11,7 @@ class CreateSpecificationController {
       CreateSpecificationUseCase
     );
 
-    await createSpecificationUseCase.execute({
-      name,
-      description,
-    });
+    await createSpecificationUseCase.execute({ name, description });
 
     return response.status(201).send();
   }

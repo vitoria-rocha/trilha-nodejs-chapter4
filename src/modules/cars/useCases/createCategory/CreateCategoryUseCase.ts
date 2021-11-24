@@ -8,6 +8,13 @@ interface IRequest {
   description: string;
 }
 
+/**
+ * [X] - Definir o tipo de retorno
+ * [X] - Alterar o retorno do erro
+ * [X] - Acessar o repositório
+ * [] - Retornar algo
+ */
+
 @injectable()
 class CreateCategoryUseCase {
   constructor(
@@ -21,9 +28,8 @@ class CreateCategoryUseCase {
     );
 
     if (categoryAlreadyExists) {
-      throw new AppError("Category already exists!");
+      throw new AppError("Category Already Exists!");
     }
-
     this.categoriesRepository.create({ name, description });
   }
 }

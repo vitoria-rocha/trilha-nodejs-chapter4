@@ -4,15 +4,12 @@ import express, { Request, Response, NextFunction } from "express";
 import "express-async-errors";
 import swaggerUi from "swagger-ui-express";
 
-import "@shared/container";
 import { AppError } from "@shared/errors/AppError";
-import { createConnection } from "typeorm";
-
 
 import swaggerFile from "../../../swagger.json";
 import { router } from "./routes";
 
-createConnection();
+import "@shared/container";
 
 const app = express();
 
@@ -39,4 +36,4 @@ app.use(
   }
 );
 
-app.listen(8080, () => console.log("server is running: http://localhost:8080"));
+app.listen(3333, () => console.log("server is running: http://localhost:3333"));

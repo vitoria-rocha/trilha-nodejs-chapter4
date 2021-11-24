@@ -1,4 +1,4 @@
-import { Request, Response } from "express";
+import { Response, Request } from "express";
 import { container } from "tsyringe";
 
 import { CreateCategoryUseCase } from "./CreateCategoryUseCase";
@@ -9,10 +9,7 @@ class CreateCategoryController {
 
     const createCategoryUseCase = container.resolve(CreateCategoryUseCase);
 
-    await createCategoryUseCase.execute({
-      name,
-      description,
-    });
+    await createCategoryUseCase.execute({ name, description });
 
     return response.status(201).send();
   }

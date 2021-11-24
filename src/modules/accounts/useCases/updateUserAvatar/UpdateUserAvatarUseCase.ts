@@ -8,27 +8,31 @@ interface IRequest {
   avatar_file: string;
 }
 
+/**
+ * Adicionar coluna avatar na tabela de users
+ * Refatorar usuaŕio com coluna avatar
+ * Configuração upload multer
+ * Criar regra de negócio do upload
+ * Criar Contorller
+ */
+
 @injectable()
 class UpdateUserAvatarUseCase {
   constructor(
     @inject("UsersRepository")
-    private usersRepository: IUsersRepository
+    private userRepository: IUsersRepository
   ) {}
 
   async execute({ user_id, avatar_file }: IRequest): Promise<void> {
-    // Buscando usuário
-    const user = await this.usersRepository.findById(user_id);
+    const user = await this.userRepository.findById(user_id);
 
-    // Caso usuário possuir avatar -> deletar o antigo
     if (user.avatar) {
       await deleteFile(`./tmp/avatar/${user.avatar}`);
     }
 
-    // Atualizando usuário com um novo avatar
     user.avatar = avatar_file;
 
-    // Atualizando DB
-    await this.usersRepository.create(user);
+    await this.userRepository.create(user);
   }
 }
 
