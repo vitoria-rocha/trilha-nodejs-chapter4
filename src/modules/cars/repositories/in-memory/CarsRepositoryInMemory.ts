@@ -3,6 +3,9 @@ import { Car } from "@modules/cars/infra/typeorm/entities/Car";
 import { ICarsRepository } from "../ICarsRepository";
 
 class CarsRepositoryInMemory implements ICarsRepository {
+  findAvailable(): Promise<Car[]> {
+    throw new Error("Method not implemented.");
+  }
   //entidade
   cars: Car[] = [];
   async create({
