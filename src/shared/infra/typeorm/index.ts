@@ -1,8 +1,6 @@
 /* import { createConnection, getConnectionOptions } from "typeorm";
- */
-import { Connection, createConnection, getConnectionOptions } from "typeorm";
 
-/* interface IOptions {
+interface IOptions {
   host: string;
 }
 
@@ -12,14 +10,16 @@ getConnectionOptions().then((options) => {
   createConnection({
     ...options,
   });
-}); */
+});
+ */
+import { Connection, createConnection, getConnectionOptions } from "typeorm";
 
-export default async (host = "localhost"): Promise<Connection> => {
+export default async (): Promise<Connection> => {
   const defaultOptions = await getConnectionOptions();
 
   return createConnection(
     Object.assign(defaultOptions, {
-      host,
+      host: "database",
     })
   );
 };
