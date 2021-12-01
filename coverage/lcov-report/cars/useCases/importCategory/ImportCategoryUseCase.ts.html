@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/62</span>
+                <span class='fraction'>0/63</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/62</span>
+                <span class='fraction'>0/63</span>
             </div>
         
             
@@ -118,7 +118,9 @@
 <a name='L59'></a><a href='#L59'>59</a>
 <a name='L60'></a><a href='#L60'>60</a>
 <a name='L61'></a><a href='#L61'>61</a>
-<a name='L62'></a><a href='#L62'>62</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<a name='L62'></a><a href='#L62'>62</a>
+<a name='L63'></a><a href='#L63'>63</a>
+<a name='L64'></a><a href='#L64'>64</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -179,57 +181,61 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="branch-0 cbranch-no" title="branch not covered" >import fs from "fs";</span></span></span>
-<span class="cstat-no" title="statement not covered" >import csvParse from "csv-parse";</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="branch-0 cbranch-no" title="branch not covered" >import csvParse from "csv-parse";</span></span></span>
+<span class="cstat-no" title="statement not covered" >import fs from "fs";</span>
 <span class="cstat-no" title="statement not covered" >import { inject, injectable } from "tsyringe";</span>
+<span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >import { ICategoriesRepository } from "@modules/cars/repositories/ICategoriesRepository";</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >interface IImportCategory {</span>
-<span class="cstat-no" title="statement not covered" >  name:string;</span>
+<span class="cstat-no" title="statement not covered" >interface IImportContegory {</span>
+<span class="cstat-no" title="statement not covered" >  name: string;</span>
 <span class="cstat-no" title="statement not covered" >  description: string;</span>
 <span class="cstat-no" title="statement not covered" >}</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >@injectable()</span>
 <span class="cstat-no" title="statement not covered" >class ImportCategoryUseCase {</span>
-<span class="cstat-no" title="statement not covered" >  constructor (</span>
+<span class="cstat-no" title="statement not covered" >  constructor(</span>
 <span class="cstat-no" title="statement not covered" >    @inject("CategoriesRepository")</span>
-<span class="cstat-no" title="statement not covered" >    private categoriesRepository: ICategoriesRepository){}</span>
+<span class="cstat-no" title="statement not covered" >    private categoriesRepository: ICategoriesRepository</span>
+<span class="cstat-no" title="statement not covered" >  ) {}</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >  loadCategories(file: Express.Multer.File): Promise&lt;IImportCategory[]&gt;{</span>
+<span class="cstat-no" title="statement not covered" >  loadCategories(file: Express.Multer.File): Promise&lt;IImportContegory[]&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    return new Promise((resolve, reject) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >      const stream = fs.createReadStream(file.path);</span>
-<span class="cstat-no" title="statement not covered" >      const categories: IImportCategory[] = [];</span>
-<span class="cstat-no" title="statement not covered" >      </span>
+<span class="cstat-no" title="statement not covered" >      const categories: IImportContegory[] = [];</span>
+<span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >      const parseFile = csvParse();</span>
-<span class="cstat-no" title="statement not covered" >    //cada linha lida pegara a informação, o pipe joga o que leu para o lugar q informarmos</span>
+<span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >      stream.pipe(parseFile);</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >      parseFile.on("data", async(line)=&gt;{</span>
-<span class="cstat-no" title="statement not covered" >        const [name, description] = line;</span>
-<span class="cstat-no" title="statement not covered" >        categories.push({</span>
-<span class="cstat-no" title="statement not covered" >          name,</span>
-<span class="cstat-no" title="statement not covered" >          description,</span>
+<span class="cstat-no" title="statement not covered" >      parseFile</span>
+<span class="cstat-no" title="statement not covered" >        .on("data", async (line) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >          const [name, description] = line;</span>
+<span class="cstat-no" title="statement not covered" >          categories.push({</span>
+<span class="cstat-no" title="statement not covered" >            name,</span>
+<span class="cstat-no" title="statement not covered" >            description,</span>
+<span class="cstat-no" title="statement not covered" >          });</span>
+<span class="cstat-no" title="statement not covered" >        })</span>
+<span class="cstat-no" title="statement not covered" >        .on("end", () =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >          fs.promises.unlink(file.path);</span>
+<span class="cstat-no" title="statement not covered" >          resolve(categories);</span>
+<span class="cstat-no" title="statement not covered" >        })</span>
+<span class="cstat-no" title="statement not covered" >        .on("error", (err) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >          reject(err);</span>
 <span class="cstat-no" title="statement not covered" >        });</span>
-<span class="cstat-no" title="statement not covered" >      })</span>
-<span class="cstat-no" title="statement not covered" >      .on("end", () =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >        fs.promises.unlink(file.path);</span>
-<span class="cstat-no" title="statement not covered" >        resolve(categories);</span>
-<span class="cstat-no" title="statement not covered" >      })</span>
-<span class="cstat-no" title="statement not covered" >      .on("error",(err) =&gt;{</span>
-<span class="cstat-no" title="statement not covered" >        reject(err);</span>
-<span class="cstat-no" title="statement not covered" >      });</span>
 <span class="cstat-no" title="statement not covered" >    });</span>
 <span class="cstat-no" title="statement not covered" >  }</span>
-<span class="cstat-no" title="statement not covered" >  </span>
-<span class="cstat-no" title="statement not covered" >  async execute(file: Express.Multer.File): Promise&lt;void&gt;{</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >  async execute(file: Express.Multer.File): Promise&lt;void&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    const categories = await this.loadCategories(file);</span>
-<span class="cstat-no" title="statement not covered" >    </span>
 <span class="cstat-no" title="statement not covered" >    categories.map(async (category) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >      const { name, description } = category;</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >      const existsCategory = await this.categoriesRepository.findByName(name);</span>
+<span class="cstat-no" title="statement not covered" >      const existCategory = await this.categoriesRepository.findByName(name);</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >      if(!existsCategory){</span>
+<span class="cstat-no" title="statement not covered" >      if (!existCategory) {</span>
 <span class="cstat-no" title="statement not covered" >        await this.categoriesRepository.create({</span>
 <span class="cstat-no" title="statement not covered" >          name,</span>
 <span class="cstat-no" title="statement not covered" >          description,</span>
@@ -239,15 +245,15 @@
 <span class="cstat-no" title="statement not covered" >  }</span>
 <span class="cstat-no" title="statement not covered" >}</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >export { ImportCategoryUseCase };</span></pre></td></tr></table></pre>
+<span class="cstat-no" title="statement not covered" >export { ImportCategoryUseCase };</span>
+&nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Wed Nov 24 2021 15:06:56 GMT-0400 (Amazon Standard Time)
+                at Wed Dec 01 2021 12:53:47 GMT-0400 (Amazon Standard Time)
             </div>
         </div>
         <script src="../../../prettify.js"></script>

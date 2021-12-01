@@ -17,7 +17,7 @@ const app = express();
 
 app.use(express.json());
 
-// http://localhost:8080/api-docs
+// http://localhost:3333/api-docs
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerFile));
 
 app.use(router);
