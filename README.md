@@ -180,3 +180,6 @@ Começar cirando um createcar
 > yarn add dayjs
 
 Importa o dayjs no use case
+
+
+## testes de integração
