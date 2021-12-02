@@ -174,3 +174,9 @@ descomentar e alterar:
 Primeiro o teste irá falhar > Passar > Refatorar colocando regra de negocio e validação dentro do banco.
 
 Começar cirando um createcar
+
+## Biblioteca DAYJS
+
+> yarn add dayjs
+
+Importa o dayjs no use case
